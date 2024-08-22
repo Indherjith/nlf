@@ -9,6 +9,7 @@ const DonateHandler= async(req,res)=>{
     }
     catch(err){
         console.log(err);
+        alert('error');
     }
         
 }
@@ -35,12 +36,7 @@ async function getPayPalAccessToken() {
     }
 }
 
-// Usage
-getPayPalAccessToken().then(token => {
-    console.log('PayPal Access Token:', token);
-}).catch(error => {
-    console.error(error);
-});
+
 
 const success = async(req, res) => {
     const body = req.body;
@@ -51,6 +47,7 @@ const success = async(req, res) => {
     const paypalTransmissionSig = req.headers['paypal-transmission-sig'];
     const paypalTransmissionTime = req.headers['paypal-transmission-time'];
     const webhookId = '2S213648J3485193T'; // Replace with your webhook ID
+    const accessToken = await getPayPalAccessToken();
 
     try {
         const response = await axios.post('https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signature', {
