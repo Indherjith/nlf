@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(result => {
-            if (result.success) {
+            if (result) {
                 // Redirect to PayPal with the transaction ID
                 const paypalLink = `https://www.sandbox.paypal.com/donate/?hosted_button_id=MTYJ9JEWRRT2Q`;
                 window.location.href = paypalLink;
