@@ -6,7 +6,7 @@ const DonateHandler= async(req,res)=>{
     const donate = new NLF_DonateModel({...req.body,dateTime:times});
     try{
         await donate.save();
-        JSON.parse(localStorage.setItem("paymentTime",times));
+        localStorage.setItem('paidAt',times);
         res.json({"msg" : "Thank you for Being a part of Natural Life Foundation."});
     }
     catch(err){
