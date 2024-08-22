@@ -2,19 +2,13 @@ const {NLF_DonateModel} = require('../Models/NLF_Donate.model');
 const axios = require('axios');
 
 const DonateHandler= async(req,res)=>{
-    if(req.body.paymentId){
-        const donate = new NLF_DonateModel({...req.body,donatedAmount:"",dateTime:0,paymentId:""});
-        try{
-            await donate.save();
-            res.json({"msg" : "Thank you for Being a part of Natural Life Foundation."});
-        }
-        catch(err){
-            console.log(err)
-            res.json({"msg":"Smething went wrong! If any amount debited, will be refunded within 7 working days."});
-        }
-    } else{
-        console.log(req.body);
-        res.json({"msg":"Something went wrong, plz try again"});
+    const donate = new NLF_DonateModel({...req.body,donatedAmount:"",dateTime:0,paymentId:""});
+    try{
+        await donate.save();
+        res.json({"msg" : "Thank you for Being a part of Natural Life Foundation."});
+    }
+    catch(err){
+        console.log(err);
     }
         
 }
