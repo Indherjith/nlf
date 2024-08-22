@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(result => {
             if (result.success) {
                 // Redirect to PayPal with the transaction ID
-                const paypalLink = `https://www.sandbox.paypal.com/donate/?hosted_button_id=${result.hosted_button_id}`;
+                const paypalLink = `https://www.sandbox.paypal.com/donate/?hosted_button_id=MTYJ9JEWRRT2Q`;
                 window.location.href = paypalLink;
             } else {
                 alert('Failed to prepare the donation.');
