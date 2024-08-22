@@ -1,0 +1,581 @@
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+/* *********************************************************************************************** header ********************************************************************************************************************** */
+.navbar {
+  background-color: #4CAF50; 
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  color: #3A940F !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+}
+
+.brand-header img {
+  margin-right: 10px;
+}
+
+.nav-item {
+  margin: 0 45px !important;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+}
+
+.nav-link {
+  color: rgb(0, 0, 0) !important;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: black !important;
+}
+
+.navbar-toggler {
+  position: relative;
+  margin-left: auto;
+}
+
+/************************************************** Sidebar starts here ********************************************************************/
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; 
+  width: 250px;
+  height: 100%;
+  background-color: #4CAF50; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  transition: right 0.3s ease; 
+  z-index: 1050; 
+}
+
+.sidebar.show {
+  right: 0; 
+}
+
+.sidebar .nav-link {
+  padding: 10px 20px; 
+  display: block;
+  color: #333; 
+  margin-top: 30px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: transparent;  
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+/* *********************************************************************************************** contain-start********************************************************************************************************************** */
+.contain-sec {
+  background-color: rgba(126, 176, 81, 1);
+  padding: 40px;
+}
+.contain-sec img {
+  position: relative;
+  width: 100%;
+}
+.contain-sec h2 {
+  position: absolute;
+  width: 625px;
+  top: 290px;
+  left: 179px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  z-index: 1;
+  color: white;
+}
+.contain-sec p {
+  position: absolute;
+  width: 610px;
+  top: 401px;
+  text-align: center;
+  left: 178px;
+  font-size: 20px;
+  font-weight: 400;
+  z-index: 1;
+  color: white;
+}
+/* ************************************************************************** contain-end ********************************************************************************************************************************************************** */
+
+/* ************************************************************************** journey-start ********************************************************************************************************************************************************** */
+.journey {
+  padding: 60px;
+  background-color: white;
+}
+
+.journey h2 {
+  margin-bottom: 2rem;
+}
+
+.program-offerings {
+  background-color: #7cb342;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.program-offerings .description {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.program-offerings .description p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.program-offerings .icons {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.program-offerings .icon {
+  text-align: center;
+}
+
+.program-offerings .icon img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+}
+
+.program-offerings .icons .icon .label {
+  background-color: #e3f2fd;
+  color: black;
+  border-radius: 5px;
+  width: 121px;
+  height: 36px;
+  padding-top: 5px;
+}
+/* ************************************************************************** journey-end ********************************************************************************************************************************************************** */
+
+/* ************************************************************************** center-start ********************************************************************************************************************************************************** */
+.center {
+  position: relative;
+  padding: 50px;
+}
+.center-image img {
+  height: auto;
+  width: 100%;
+}
+.center-text {
+  position: absolute;
+  top: 37%;
+  left: -18%;
+  font-size: large;
+  width: 100%;
+  align-items: flex-start;
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+/* ************************************************************************** center-end ********************************************************************************************************************************************************** */
+/* ************************************************************************** cards-start ********************************************************************************************************************************************************** */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 100px;
+  padding-left: 178px;
+}
+
+.card-sec {
+  display: flex;
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.card-sec img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-sec .content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-sec h3 {
+  margin-top: 0;
+  color: #004d99;
+}
+
+.card-sec p {
+  margin: 0.5rem 0 0;
+}
+
+.card-sec strong {
+  display: block;
+  margin-top: 0.5rem;
+}
+.card-sec:last-child {
+  margin: 0 50%;
+  width: 100%;
+}
+/* ************************************************************************** cards-end ********************************************************************************************************************************************************** */
+
+
+/* ****************************************************************************************************footer-end*********************************************************************************************** */
+
+/* ************************************************************************** media query(max- width:600) ********************************************************************************************************************************************************** */
+@media (max-width: 600px) {
+  /* ************************************************************************** contain-start ********************************************************************************************************************************************************** */
+  .contain-sec {
+    background-color: rgba(126, 176, 81, 1);
+    padding: 12px;
+  }
+  .contain-sec h2 {
+    position: absolute;
+    width: 72%;
+    top: 155px;
+    left: 48px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+  }
+  .contain-sec p {
+    position: absolute;
+    width: 72%;
+    top: 192px;
+    text-align: center;
+    left: 50px;
+    font-size: 11px;
+    font-weight: 400;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+  }
+  /* ************************************************************************** contain-end ********************************************************************************************************************************************************** */
+
+  /* ************************************************************************** journey-start ********************************************************************************************************************************************************** */
+  .journey {
+    padding: 7px;
+    background-color: white;
+  }
+  .program-offerings {
+    background-color: #7cb342;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .program-offerings .icon {
+    text-align: center;
+    width: 90px;
+  }
+  .program-offerings .icon img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+  }
+  .program-offerings .description p {
+    margin: 0;
+    font-size: 18px;
+}
+  .program-offerings .icons .icon .label {
+    background-color: #e3f2fd;
+    color: black;
+    border-radius: 5px;
+    width: 90px;
+    height: 27px;
+    font-size: 10px;
+    padding-top: 4px;
+    align-content: center;
+  }
+  .program-offerings .icons {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* ************************************************************************** journey-end ********************************************************************************************************************************************************** */
+
+  /* ************************************************************************** center-start ********************************************************************************************************************************************************** */
+  .center {
+    position: relative;
+    padding: 5px;
+  }
+  .center-text {
+    position: absolute;
+    top: 26%;
+    left: 15%;
+    font-size: 13px;
+    width: 77%;
+    align-items: flex-start;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+  /* ************************************************************************** center-end ********************************************************************************************************************************************************** */
+
+  /* ************************************************************************** cards-start ********************************************************************************************************************************************************** */
+  .card-sec img {
+    width: 140px;
+    object-fit: cover;
+  }
+  .card-sec .content {
+    font-size: 14px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+  .card-sec:last-child {
+    margin: 0 0;
+    width: 100%;
+  }
+}
+  /* ************************************************************************** cards-end ********************************************************************************************************************************************************** */
+/* *********************************************************************************************** media-query (min width 600) and (max-width:768px) ********************************************************************************************************************** */
+@media (min-width: 600px) and (max-width: 768px) {
+  /* ************************************************************************** contain-start ********************************************************************************************************************************************************** */
+  .contain-sec {
+    padding: 35px;
+}
+  .contain-sec h2 {
+    position: absolute;
+    width: 50%;
+    top: 200px;
+    left: 135px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+  .contain-sec p {
+    position: absolute;
+    width: 50%;
+    top: 300px;
+    text-align: center;
+    left: 130px;
+    font-size: 14px;
+    font-weight: 400;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+  /* ************************************************************************** contain-end ********************************************************************************************************************************************************** */
+  /* ************************************************************************** journey-start ********************************************************************************************************************************************************** */
+  .program-offerings {
+    background-color: #7cb342;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .program-offerings .icons .icon .label {
+    align-content: center;
+  }
+  .program-offerings .icons {
+    display: flex;
+    flex: 1;
+    gap: 50px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  /* ************************************************************************** journey-end ********************************************************************************************************************************************************** */
+  /* ************************************************************************** center-start ********************************************************************************************************************************************************** */
+  .center-text {
+    position: absolute;
+    top: 37%;
+    left: 7%;
+    font-size: 18px;
+    width: 58%;
+    align-items: flex-start;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+  /* ************************************************************************** center-end ********************************************************************************************************************************************************** */
+  /* ************************************************************************** cards-start ********************************************************************************************************************************************************** */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 47px;
+    padding-left: 50px;
+  }
+  .card-sec:last-child {
+    margin: 0 0%;
+    width: 100%;
+  }
+  /* ************************************************************************** cards-end ********************************************************************************************************************************************************** */
+}
+
+/* *********************************************************************************************** media query (min width:769px) and (max-width:1025px) ********************************************************************************************************************** */
+@media (min-width: 769px) and (max-width: 1025px) {
+  /* ************************************************************************** contain-start ********************************************************************************************************************************************************** */
+  .contain-sec h2 {
+    top: 200px;
+  }
+  .contain-sec p {
+    top: 310px;
+  }
+  /* ************************************************************************** contain-end ********************************************************************************************************************************************************** */
+  /* ************************************************************************** center-start ********************************************************************************************************************************************************** */
+  .center-text {
+    position: absolute;
+    top: 37%;
+    left: -5%;
+    font-size: large;
+    width: 100%;
+    align-items: flex-start;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+  .center {
+    position: relative;
+    padding: 0 50px;
+  }
+  /* ************************************************************************** center-end ********************************************************************************************************************************************************** */
+  /* ************************************************************************** cards-start ********************************************************************************************************************************************************** */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px;
+    padding-left: 45px;
+  }
+  /* ************************************************************************** cards-end ********************************************************************************************************************************************************** */
+}
+.footer-section {
+  background-color: #023020;
+  color: white;
+  padding: 40px 0 20px 0;
+  margin-top: 30px;
+}
+.footer-brand{
+  margin-bottom: 30px;
+}
+.list-unstyled a{
+  color: #ffffff;
+}
+.list-unstyled li{
+  margin: 17px 0;
+}
+.footer-brand img {
+  width: 50px;
+  height: 50px;
+}
+.footer-section  h3{
+  font-size: 25px;
+}
+.footer-copy {
+  font-size: 15px;
+  margin: 10px 0;
+}
+.social-icons{
+  margin-top: 40px;
+  display: flex;
+}
+.social-icon {
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #4e4e4e54; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+}
+.social-icon:hover{
+  color: #000000;
+  text-decoration: none;
+}
+.form-control{
+  background-color: #4e4e4e54; 
+  border: none;
+}
+.input-group-append{
+  background-color: transparent;
+  color: #4e4e4e54;
+}
+/************************************************** footer ends here ********************************************************************/
+
+/************************************************** responsives ********************************************************************/
+@media (max-width: 768px) {
+  .nav-item {
+      margin: 0 10px;
+  }
+  .brand-header{
+      font-size: 22px;
+  }
+  .nav-link{
+      font-size: 19px;
+  }
+  .footer-section  h3{
+      font-size: 20px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-item {
+      margin: 0 30px !important; 
+  }
+  .sidebar {
+      display: none; 
+  }
+  
+  .navbar-nav {
+      display: flex !important; 
+  }
+}

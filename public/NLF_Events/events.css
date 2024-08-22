@@ -1,0 +1,334 @@
+/************************************************** Navbar starts here ********************************************************************/
+.navbar {
+    background-color: #4CAF50; 
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: #3A940F !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+}
+
+.brand-header img {
+    margin-right: 10px;
+}
+
+.nav-item {
+    margin: 0 45px !important;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+}
+
+.nav-link {
+    color: rgb(0, 0, 0) !important;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: black !important;
+}
+
+.navbar-toggler {
+    position: relative;
+    margin-left: auto;
+}
+
+/************************************************** Sidebar starts here ********************************************************************/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #4CAF50; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    transition: right 0.3s ease; 
+    z-index: 1050; 
+}
+
+.sidebar.show {
+    right: 0; 
+}
+
+.sidebar .nav-link {
+    padding: 10px 20px; 
+    display: block;
+    color: #333; 
+    margin-top: 30px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: transparent;  
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+/**************************************************sidebar ends here********************************************************************/
+
+
+/************************************************** banner starts here ********************************************************************/
+.hero {
+    background-image: url('Images/banner.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: #fff;
+    height: 80vh;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 600;
+    font-family: "Lato",sans-serif;
+    color: #92EE66;
+    text-align: left;
+}
+/************************************************** banner ends here ********************************************************************/
+
+
+/************************************************** Intro starts here ********************************************************************/
+.programs {
+    padding: 50px 0;
+}
+
+.program-description {
+    font-size: 24px;
+    font-family: "Lato",sans-serif;
+    font-weight: 300;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.program-offerings-title {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.program-title {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.program-elements {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.program-details {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    padding: 0;
+    margin-top: 65px;
+}
+
+.program-details li {
+    margin-bottom: 10px;
+}
+/************************************************** Intro ends here ********************************************************************/
+
+
+/************************************************** Explore our program offerings starts here ********************************************************************/
+.additional-programs .program {
+    margin-bottom: 40px;
+}
+
+.additional-programs .program-title {
+    margin-bottom: 20px;
+}
+
+.additional-programs .program img {
+    max-width: 100%;
+    height: auto;
+}
+
+.additional-programs .program-details li {
+    margin-bottom: 10px;
+}
+/**************************************************Explore our program offerings ends here ********************************************************************/
+
+/************************************************** Book now starts here  ********************************************************************/
+.activity-programs{
+    background: linear-gradient(90.25deg, #FFDE21 0.17%, rgba(76, 92, 42, 0.332) 101.58%);
+
+}
+.activity{
+    margin-top: 5%;
+}
+.activity-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.activity  li{
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    text-align: left;
+}
+.activity-title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.btn-primary{
+    background-color: #75B457;
+    color: #000000;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #75B457;
+}
+/************************************************** Book now ends here ********************************************************************/
+
+/************************************************** content starts here ********************************************************************/
+.content{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Lato",sans-serif;
+    color: #000000;
+    text-align: left;
+    margin: 50px;
+}
+/************************************************** content ends here ********************************************************************/
+
+
+
+/************************************************** footer starts here ********************************************************************/
+.footer-section {
+    background-color: #023020;
+    color: white;
+    padding: 40px 0 20px 0;
+    margin-top: 30px;
+}
+.footer-brand{
+    margin-bottom: 30px;
+}
+.list-unstyled a{
+    color: #ffffff;
+}
+.list-unstyled li{
+    margin: 17px 0;
+}
+.footer-brand img {
+    width: 50px;
+    height: 50px;
+}
+.footer-section  h3{
+    font-size: 25px;
+}
+.footer-copy {
+    font-size: 15px;
+    margin: 10px 0;
+}
+.social-icons{
+    margin-top: 40px;
+    display: flex;
+}
+.social-icon {
+    margin-right: 15px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #4e4e4e54; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+.social-icon:hover{
+    color: #000000;
+    text-decoration: none;
+}
+.form-control{
+    background-color: #4e4e4e54; 
+    border: none;
+}
+.input-group-append{
+    background-color: transparent;
+    color: #4e4e4e54;
+}
+/************************************************** footer ends here ********************************************************************/
+
+/************************************************** responsives ********************************************************************/
+@media (max-width: 768px){
+    .hero-title{
+        font-size: 32px;
+    }
+    .program-description{
+        font-size: 20px;
+    }
+    .program-offerings-title{
+        font-size: 25px;
+    }
+    .program-details{
+        font-size: 18px;
+        text-align: left;
+        margin: 20px;
+    }
+    .activity li{
+        text-align: left;
+    }
+    .content p{
+        font-size: 20px;
+        text-align: left;
+        margin: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .nav-item {
+        margin: 0 10px;
+    }
+    .brand-header{
+        font-size: 22px;
+    }
+    .nav-link{
+        font-size: 19px;
+    }
+    .footer-section  h3{
+        font-size: 20px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .nav-item {
+        margin: 0 30px !important; 
+    }
+    .sidebar {
+        display: none; 
+    }
+    
+    .navbar-nav {
+        display: flex !important; 
+    }
+}

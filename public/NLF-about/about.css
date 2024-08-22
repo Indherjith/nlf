@@ -1,0 +1,146 @@
+
+body {
+  font-family: 'Lato', sans-serif !important;
+}
+ 
+/* banner  */ 
+.position-ban {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .top-left {
+    position: absolute;
+    top: 80px;
+    left: 89px;
+    font-size: 32px;
+  }
+  
+  .top-left h4 {
+    color: #92EE66;
+    text-align: left;
+    font-size: 32px;
+  }
+
+  .top-left h6 {
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+
+  .container-fluid {
+    position: relative;
+    width: 100%;
+}
+
+.position-ban img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top-left {
+    position: absolute;
+    top: 58px;
+    left: 57px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+ 
+/* banner  */
+
+
+  /* our vision  */
+
+  .ourvision-card h3 {
+    font-size: 32px;
+  }
+  
+  .ourvision-card h5 {
+    font-size: 24px;
+
+  }
+  
+  .about-para h5 {
+    font-size: 18px;
+    font-weight: 400;
+    word-spacing: 2.8px;
+
+  }
+
+  .about-para {
+    font-size: 18px !important;
+    color: #000000;
+    font-weight: 400;
+    word-spacing: 2.8px;
+  }
+
+  
+  /* our vision  */
+
+      /* our mission  */
+  .ourmission h5 
+  { 
+    font-size: 20px;
+  }
+
+  .ourmission-card h3
+   { 
+    font-size: 24px;
+    word-spacing: 2.8px; 
+    }    
+
+    /* our mission  */
+
+    /* media query  */
+  
+  @media (min-width: 479px) and (max-width: 767px) {
+
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+      }
+ 
+  }
+  
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+      }
+  
+    }
+  
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .top-left {
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    font-size: 32px;
+}
+  
+.ourvision-card h5 {
+  font-size: 19px;
+}
+
+.ourmission h5 {
+  font-size: 18px;
+}
+
+.ourmission-card h3 {
+  font-size: 22px;
+  word-spacing: 2.8px;
+}
+
+}
+
+
+    /* media query  */
+   

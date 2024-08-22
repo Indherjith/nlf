@@ -1,0 +1,616 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+
+/************************************************** Navbar starts here ********************************************************************/
+.navbar {
+    background-color: #4CAF50;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: #3A940F !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+}
+
+.brand-header img {
+    margin-right: 10px;
+}
+
+.nav-item {
+    margin: 0 45px !important;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+}
+
+.nav-link {
+    color: rgb(0, 0, 0) !important;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: black !important;
+}
+
+.navbar-toggler {
+    position: relative;
+    margin-left: auto;
+}
+
+/*------------------------------------------------------------------------------ sidebar starts here -----------------------------------------------------------------------------------------*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1050;
+}
+
+.sidebar.show {
+    right: 0;
+}
+
+.sidebar .nav-link {
+    padding: 10px 20px;
+    display: block;
+    color: #333;
+    margin-top: 30px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: transparent;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+/*------------------------------------------------------------------------------ sidebar ends here -----------------------------------------------------------------------------------------*/
+
+
+/* -------------------------------------------------------------------------- banner starts here -------------------------------------------------------------------------------------------- */
+.hero {
+    background-image: url('Images/banner.png');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero .container {
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: rgba(146, 238, 102, 1);
+}
+
+.hero p {
+    font-size: 1.5em;
+    color: white;
+}
+.button-container {
+    text-align: center;
+    
+}
+
+.register-btn {
+    padding: 15px 30px;
+    font-size: 25px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+    .register-btn {
+        padding: 12px 24px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .register-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+.register-btn a {
+    text-decoration: none;
+    color: white;
+}.register-btn a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+/* ----------------------------------------------------------------------------- banner ends here -------------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------ cards starts here ------------------------------------------------------------------------------------------- */
+.card {
+    margin: 20px 0;
+    border-radius: 25px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: contain;
+    height: 300px;
+    padding: 10px 20px;
+}
+
+.card-title {
+    color: rgba(84, 128, 205, 1);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.card-text {
+    padding: 10px;
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----------------------------------------------------------------------------- cards ends here --------------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------- background and history of ONLF starts here --------------------------------------------------------------------------- */
+.section-title {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.ONLF {
+    background: linear-gradient(to right, rgba(43, 132, 73, 1), rgba(76, 92, 42, 0));
+    padding: 20px;
+}
+
+.custom-card {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    position: relative;
+}
+
+.custom-card img {
+    border-radius: 10px;
+    object-fit: contain;
+    height: 500px;
+    width: 100%;
+    /* margin-top: 20px; */
+}
+
+.custom-card-title {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.custom-card-body {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+}
+
+.custom-card-text {
+    flex-grow: 1;
+    font-size: 20px;
+}
+
+.end-card img {
+    height: 300px !important;
+}
+
+.center-card .custom-card-body {
+    order: 1;
+}
+
+.center-card img {
+    order: 2;
+}
+
+/* ------------------------------------------------------------------- background and history of ONLF starts here --------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------- temple of nature starts here ---------------------------------------------------------------------------- */
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+.text-center h1 {
+    font-weight: 800;
+}
+
+.text-center h2 {
+    font-size: 25px;
+}
+
+.content p {
+    font-size: 25px;
+}
+
+/* ------------------------------------------------------------------------------- temple of nature ends here ---------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------- pancha bootham starts here ------------------------------------------------------------------------------- */
+.section h3 {
+    font-weight: 800;
+}
+
+.section p {
+    font-size: 20px;
+}
+
+.section {
+    padding: 20px;
+}
+
+.background-gradient1 {
+    background: linear-gradient(to right, #ffecb3, #ffffff);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.background-gradient2 {
+    background: linear-gradient(to right, rgba(137, 81, 41, 1), rgba(76, 92, 42, 0));
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.background-gradient3 {
+    background: linear-gradient(to right, rgba(0, 255, 240, 1), rgba(76, 92, 42, 0));
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.background-gradient4 {
+    background: linear-gradient(to right, rgba(135, 206, 235, 1), rgba(76, 92, 42, 0));
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.background-gradient5 {
+    background: linear-gradient(to right, rgba(170, 33, 3, 1), rgba(76, 92, 42, 0));
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.text-section {
+    padding-left: 20px;
+    font-size: 22px;
+}
+
+.head h4 {
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* ----------------------------------------------------------------------------- pancha bootham ends here ----------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------- blogs starts here --------------------------------------------------------------------------------------- */
+.blog-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    height: 100%;
+}
+
+.blog-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.blog-body {
+    text-align: center;
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-explore {
+    background-color: rgba(58, 148, 15, 1) !important;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 800 !important;
+}
+
+.col-12 h2 {
+    font-weight: 800;
+    padding: 30px 0 10px 30px;
+    font-size: 45px;
+}
+
+.col-12 p {
+    font-size: 20px;
+}
+
+/* ---------------------------------------------------------------------------- blogs ends here ------------------------------------------------------------------------------------------ */
+
+
+/* ---------------------------------------------------------------------------- footer starts here ------------------------------------------------------------------------------------------ */
+
+.footer-section {
+    background-color: #023020;
+    color: white;
+    padding: 40px 0 20px 0;
+    margin-top: 30px;
+}
+
+.footer-brand {
+    margin-bottom: 30px;
+}
+
+.list-unstyled a {
+    color: #ffffff;
+}
+
+.list-unstyled li {
+    margin: 17px 0;
+}
+
+.footer-brand img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer-section h3 {
+    font-size: 25px;
+}
+
+.footer-copy {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.social-icons {
+    margin-top: 40px;
+    display: flex;
+}
+
+.social-icon {
+    margin-right: 15px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #4e4e4e54;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+
+.social-icon:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.form-control, .input-group-text {
+    background-color: #4e4e4e54 !important;
+    border: none !important;
+    color: white !important;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.input-group-append {
+    
+    background-color: transparent;
+    color: #4e4e4e54 !important;
+}
+
+/* ---------------------------------------------------------------------------- footer ends here ------------------------------------------------------------------------------------------ */
+
+
+/* --------------------------------------------------------------------------- media query for all ----------------------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .blog-item {
+        margin-bottom: 20px;
+        height: 100%;
+    }
+
+    .col-12 p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 992px) {
+    .nav-item {
+        margin: 0 30px !important;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .navbar-nav {
+        display: flex !important;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .text-section {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .text-section p{
+        font-size: 20px;
+    }
+
+    .content p {
+        padding-top: 20px auto !important;
+    }
+
+    .custom-card img {
+        height: 300px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-text {
+        font-size: 1em;
+    }
+
+    .card-img-top {
+        height: 200px;
+        padding: 5px 10px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    .brand-header {
+        font-size: 22px;
+    }
+
+    .nav-link {
+        font-size: 19px;
+    }
+
+    .footer-section h3 {
+        font-size: 20px !important;
+    }
+
+    .center-card .custom-card-body {
+        order: 2;
+    }
+
+    .center-card img {
+        order: 1;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .custom-card img {
+        height: 150px !important;
+    }
+
+    .card-title {
+        font-size: 19px;
+    }
+
+    .card-text {
+        font-size: 17px;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+
+    .text-section p{
+        font-size: 18px;
+    }
+}
+
+
+
+
