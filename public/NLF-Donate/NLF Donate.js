@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        const baseUrl = window.location.origin;
         
         if (mobileNumberInput.value.length !== 10) {
             alert('Mobile number must be exactly 10 digits.');
