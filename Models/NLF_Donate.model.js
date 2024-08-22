@@ -8,9 +8,9 @@ const NLF_DonateSchema = new mongoose.Schema({
     email:{type:String,require:true},
     mobileNumber:{type:Number,require:true},
     pincode : {type:Number, required:true},
-    donatedAmount : {type:String, required:true},
-    dateTime : {type:Number, required:true},
-    paymentId : {type:String, required:true}
+    donatedAmount : {type:String},
+    dateTime : {type:Number},
+    paymentId : {type:String}
 })
 
 const NLF_DonateModel = mongoose.model("NLF_Donate",NLF_DonateSchema);

@@ -2,7 +2,7 @@ const {NLF_DonateModel} = require('../Models/NLF_Donate.model');
 const axios = require('axios');
 
 const DonateHandler= async(req,res)=>{
-    const donate = new NLF_DonateModel({...req.body,donatedAmount:"",dateTime:0,paymentId:""});
+    const donate = new NLF_DonateModel({...req.body});
     try{
         await donate.save();
         res.json({"msg" : "Thank you for Being a part of Natural Life Foundation."});
