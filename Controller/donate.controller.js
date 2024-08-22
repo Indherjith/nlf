@@ -39,6 +39,8 @@ async function getPayPalAccessToken() {
 
 
 const success = async(req, res) => {
+    console.log('entered');
+    
     const body = req.body;
 
     const paypalAuthAlgo = req.headers['paypal-auth-algo'];
@@ -50,6 +52,8 @@ const success = async(req, res) => {
     const accessToken = await getPayPalAccessToken();
 
     try {
+        console.log('tried');
+        
         const response = await axios.post('https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signature', {
             auth_algo: paypalAuthAlgo,
             cert_url: paypalCertUrl,
@@ -66,6 +70,7 @@ const success = async(req, res) => {
         });
 
         if (response.data.verification_status === 'SUCCESS') {
+            
             // Process the event
             if (body.event_type === 'PAYMENT.CAPTURE.COMPLETED') {
                 const transactionId = body.resource.id;
@@ -81,6 +86,8 @@ const success = async(req, res) => {
             }
         } else {
             res.status(400).send('Invalid signature');
+            console.log('failed');
+            
         }
     } catch (error) {
         console.error('Error verifying webhook:', error);
