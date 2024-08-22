@@ -27,7 +27,7 @@ const success = async(req, res) => {
     const paypalTransmissionId = req.headers['paypal-transmission-id'];
     const paypalTransmissionSig = req.headers['paypal-transmission-sig'];
     const paypalTransmissionTime = req.headers['paypal-transmission-time'];
-    const webhookId = 'YOUR-WEBHOOK-ID'; // Replace with your webhook ID
+    const webhookId = '2S213648J3485193T'; // Replace with your webhook ID
 
     try {
         const response = await axios.post('https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signature', {
