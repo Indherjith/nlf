@@ -19,6 +19,35 @@ const DonateHandler= async(req,res)=>{
         
 }
 
+async function getPayPalAccessToken() {
+    const clientId = 'Abzoz8Wu8g7HmDPdgCabLjQLsVNKfcFlJRPS43Mp6WL3EGk3clLNcPnoYYLNbBq3URsZJc7E_f-eKojj'; // Replace with your PayPal client ID
+    const clientSecret = 'ENMEhx9VITZIcLrhxmW1gJ-VRiGuoBvoBHCM57ovlBT5Bj4qkc1j_7IxN7S6sGB9w10B37s2GvSf9id1'; // Replace with your PayPal client secret
+
+    try {
+        const response = await axios.post('https://api.sandbox.paypal.com/v1/oauth2/token', 'grant_type=client_credentials', {
+            auth: {
+                username: clientId,
+                password: clientSecret,
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+
+        return response.data.access_token;
+    } catch (error) {
+        console.error('Error getting PayPal access token:', error);
+        throw error;
+    }
+}
+
+// Usage
+getPayPalAccessToken().then(token => {
+    console.log('PayPal Access Token:', token);
+}).catch(error => {
+    console.error(error);
+});
+
 const success = async(req, res) => {
     const body = req.body;
 
@@ -41,7 +70,7 @@ const success = async(req, res) => {
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer YOUR-ACCESS-TOKEN`, // Use your sandbox access token
+                'Authorization': `Bearer ${accessToken}`, // Use your sandbox access token
             },
         });
 
