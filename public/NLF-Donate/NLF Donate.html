@@ -16,8 +16,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+    <style>
+        /* Increase the size of the PayPal donation button */
+        #donate-button img {
+            width: 200px; /* Increase the width */
+            height: auto; /* Maintain the aspect ratio */
+        }
+    </style>
 </head>
-<body>
+<body>        
     <!----------------------------------------------------------- navbar starts here ----------------------------------------------------------------------->
 <header class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="brand-header" href="#">
@@ -114,14 +121,99 @@
             </div>
             <div class="form-group">
                 <label for="mobileNumber">Mobile Number:</label>
-                <input type="tel" id="mobile-number" name="mobile-number" required>
+                <input type="tel" id="mobile-number" name="mobileNumber" required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-group">
+
+            <!-- <div class="form-group">
                 <button type="submit">Donate Now</button>
+            </div> -->
+
+
+            <div id="donate-button-container" style="text-align: center;">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                    // Disable the donate button initially
+                    const donateButtonContainer = document.getElementById('donate-button-container');
+                    donateButtonContainer.style.pointerEvents = 'none';
+                    donateButtonContainer.style.opacity = '0.5';
+
+                    // Function to check form validity
+                    const checkFormValidity = () => {
+                        const form = document.getElementById('donation-form');
+                        if (form.checkValidity()) {
+                            donateButtonContainer.style.pointerEvents = 'auto';
+                            donateButtonContainer.style.opacity = '1';
+                        } else {
+                            donateButtonContainer.style.pointerEvents = 'none';
+                            donateButtonContainer.style.opacity = '0.7';
+                        }
+                    };
+
+                    // Listen for input events on form fields
+                    const formInputs = document.querySelectorAll('#donation-form input');
+                    formInputs.forEach(input => {
+                        input.addEventListener('input', checkFormValidity);
+                    });
+
+                    // PayPal Donation Button
+                    PayPal.Donation.Button({
+                        env: 'sandbox',
+                        hosted_button_id: 'MTYJ9JEWRRT2Q',
+                        image: {
+                            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+                            alt: 'Donate with PayPal button',
+                            title: 'PayPal - The safer, easier way to pay online!',
+                        },
+                        onComplete: function (params) {
+                            const { amt, tx, st } = params;
+                            const mobileNumberInput = document.getElementById('mobile-number');
+                            mobileNumberInput.addEventListener('input', function () {
+                                this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+                                if (this.value.length > 10) {
+                                    this.value = this.value.slice(0, 10); // Limit to 10 characters
+                                }
+                            });
+                            const baseUrl = window.location.origin;
+                            if (mobileNumberInput.value.length !== 10) {
+                                alert('Mobile number must be exactly 10 digits.');
+                                return;
+                            } else {
+                                var form = document.getElementById('donation-form');
+                                var formData = new FormData(form);
+
+                                var data = {};
+                                for (var [key, value] of formData.entries()) {
+                                    data[key] = value;
+                                }
+                                data['amt'] = amt;
+                                data['tx'] = tx;
+                                data['st'] = st;
+
+                                fetch(baseUrl + '/donate', {
+                                    method: 'POST',
+                                    body: JSON.stringify(data),
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                })
+                                    .then(response => response.json())
+                                    .then(responseData => {
+                                        console.log('Server response:', responseData);
+                                        alert('Donation process Completed Successfully!')
+                                        window.location.href = baseUrl;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                            }
+                        }
+                    }).render('#donate-button');
+                </script>
             </div>
         </form>
     </div>

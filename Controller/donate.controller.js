@@ -3,8 +3,10 @@ const axios = require('axios');
 const ipn = require('paypal-ipn');
 
 const DonateHandler= async(req,res)=>{
+    const {name,address,city,state,mobileNumber,email,pincode,amt,tx,st} = req.body;
+    
     let times = Date.now();
-    const donate = new NLF_DonateModel({...req.body,dateTime:times});
+    const donate = new NLF_DonateModel({name,address,city,state,mobileNumber,email,pincode,'donatedAmount':`${amt} USD`,'paymentId':tx,'status':st});
     try{
         await donate.save();
         res.json({"msg" : "Thank you for Being a part of Natural Life Foundation."});
@@ -53,8 +55,7 @@ const success = async(req, res) => {
     const accessToken = await getPayPalAccessToken();
 
     try {
-        const donate = new NLF_DonateModel({...req.body,dateTime:times});
-        await donate.save();
+        
         
         const response = await axios.post('https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signature', {
             auth_algo: paypalAuthAlgo,

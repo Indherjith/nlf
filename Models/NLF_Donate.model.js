@@ -9,7 +9,7 @@ const NLF_DonateSchema = new mongoose.Schema({
     mobileNumber:{type:Number,require:true},
     pincode : {type:Number, required:true},
     donatedAmount : {type:String},
-    dateTime : {type:Number},
+    status : {type:String},
     paymentId : {type:String}
 })
 
