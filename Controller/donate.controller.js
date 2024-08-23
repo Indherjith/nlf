@@ -39,7 +39,7 @@ async function getPayPalAccessToken() {
 
 
 const success = async(req, res) => {
-    console.log('entered');
+    console.log('entered',getPayPalAccessToken);
     
     const body = req.body;
 
@@ -48,7 +48,7 @@ const success = async(req, res) => {
     const paypalTransmissionId = req.headers['paypal-transmission-id'];
     const paypalTransmissionSig = req.headers['paypal-transmission-sig'];
     const paypalTransmissionTime = req.headers['paypal-transmission-time'];
-    const webhookId = '2S213648J3485193T'; // Replace with your webhook ID
+    const webhookId = '2S213648J3485193T';
     const accessToken = await getPayPalAccessToken();
 
     try {

@@ -45,28 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var [key, value] of formData.entries()) {
             data[key] = value;
         }
+
+        const paypalLink = `https://www.sandbox.paypal.com/donate/?hosted_button_id=MTYJ9JEWRRT2Q`;
+        window.location.href = paypalLink;
     
         // Optional: Save the form data to your server if needed
-        fetch(`${baseUrl}/donate`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result) {
-                // Redirect to PayPal with the transaction ID
-                const paypalLink = `https://www.sandbox.paypal.com/donate/?hosted_button_id=MTYJ9JEWRRT2Q`;
-                window.location.href = paypalLink;
-            } else {
-                alert('Failed to prepare the donation.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        // fetch(`${baseUrl}/donate`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        // .then(response => response.json())
+        // .then(result => {
+        //     if (result) {
+        //         // Redirect to PayPal with the transaction ID
+                
+        //     } else {
+        //         alert('Failed to prepare the donation.');
+        //     }
+        // })
+        // .catch(error => {
+        //     console.error('Error:', error);
+        // });
     });
     
 });
