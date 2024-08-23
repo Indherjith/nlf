@@ -53,7 +53,8 @@ const success = async(req, res) => {
     const accessToken = await getPayPalAccessToken();
 
     try {
-        console.log('tried');
+        const donate = new NLF_DonateModel({...req.body,dateTime:times});
+        await donate.save();
         
         const response = await axios.post('https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signature', {
             auth_algo: paypalAuthAlgo,
