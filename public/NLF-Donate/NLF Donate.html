@@ -204,12 +204,12 @@
                                     .then(response => response.json())
                                     .then(responseData => {
                                         alert('Donation process Completed Successfully!');
-                                        window.location.href = baseUrl;
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
                                     });
                             }
+                            window.location.href = baseUrl;
                         }
                     }).render('#donate-button');
                 </script>
