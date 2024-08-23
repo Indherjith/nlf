@@ -3,7 +3,7 @@ require("dotenv").config();
 
 
 const Register = async(req,res)=>{
-    const {firstName,lastName,spouseFirstName,spouseLastName,email,mobileNumber,adults,children,volunteer,preference,comments} = req.body;
+    const {email} = req.body;
     const personexists = await NLF_RegisterModel.findOne({email});
 
     if(personexists?.email == email){

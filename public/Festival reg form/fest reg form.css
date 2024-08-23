@@ -42,7 +42,7 @@ textarea {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #0c0c0c;
     color: #ffffff;
     padding: 12px 20px;
     border: none;
@@ -63,14 +63,63 @@ button:hover {
     display: none;
 }
 
-.radio-group label {
-    display: block;
-    margin-bottom: 8px;
-    cursor: pointer;
+/* Radio Group Styling */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 8px;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    color: #333;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.2); /* Slightly enlarges the radio button for better visibility */
+    accent-color: #4CAF50; /* Changes the color of the selected radio button */
+}
+
+/* Tablet screens (landscape orientation) */
+@media (max-width: 768px) {
+    .radio-group {
+        gap: 10px;
+        flex-direction: row; /* Align radio buttons horizontally */
+    }
+}
+
+/* Mobile screens (portrait orientation) */
+@media (max-width: 425px) {
+    .radio-group {
+        flex-direction: column; /* Stack radio buttons vertically on smaller screens */
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, textarea, select, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .radio-group label {
+        font-size: 14px;
+    }
+
+    .radio-group input[type="radio"] {
+        transform: scale(1.1);
+    }
 }
 
 .button-container {
@@ -92,20 +141,5 @@ input[type="radio"] {
     .donate-btn, .submit-btn {
         max-width: 100%;
         width: 100%;
-    }
-}
-
-@media (max-width: 425px) {
-    form {
-        padding: 15px;
-    }
-
-    label {
-        font-size: 14px;
-    }
-
-    input, textarea, select, button {
-        font-size: 14px;
-        padding: 10px;
     }
 }

@@ -9,7 +9,8 @@ const NLF_RegisterSchema = new mongoose.Schema({
     children: {type:Number, required:true},
     volunteer: {type : Boolean, required:true},
     preference : {type :String, required : true},
-    comments : {type : String, required : true}
+    comments : {type : String},
+    accommodation : {type : String, required : true}
 })
 
 const NLF_RegisterModel = mongoose.model("NLF_Register",NLF_RegisterSchema);
