@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="./fest reg form.css">
 </head>
 <body>
-    <form id="festivalForm">
+    <form id="festivalForm" action="#" method="post">
+ 
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+
         <div class="form-group">
             <label for="firstName">Your First Name:</label>
             <input type="text" id="firstName" name="firstName">
@@ -73,22 +76,23 @@
                 <label>
                     <input type="radio" name="preference" value="virtual"> Virtual
                 </label>
-                <label>
-                    <input type="radio" name="preference" value="tribute"> Tribute to Parent or Grandparent
-                </label>
-                <label>
-                    <input type="radio" name="preference" value="accommodation"> Accommodation Required
-                </label>
-                <label>
-                    <input type="radio" name="preference" value="other"> Other
-                </label>
             </div>
             <span class="error" id="preferenceError"></span>
         </div>
 
         <div class="form-group">
-            <label for="accommodation">Accommodation Details:</label>
-            <input type="text" id="accommodation" name="accommodation">
+            <label>Accommodation :</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="accommodation" value="camping"> Camping at ton 
+                </label>
+                <label>
+                    <input type="radio" name="accommodation" value="lodging"> Lodging
+                </label>
+                <label>
+                    <input type="radio" name="preference" value="other"> Other
+                </label>
+            </div>
             <span class="error" id="accommodationError"></span>
         </div>
 
@@ -96,7 +100,7 @@
             <label for="comments">Any Comments or Feedback:</label>
             <textarea id="comments" name="comments"></textarea>
         </div>
-
+   
         <div class="button-container">
             <button type="submit" class="submit-btn">Submit</button>
         </div>

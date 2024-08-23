@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body>        
+<body>
     <!----------------------------------------------------------- navbar starts here ----------------------------------------------------------------------->
 <header class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="brand-header" href="#">
@@ -98,126 +98,123 @@
     </div>
     <div class="form-container">
         <h2>Personal Information</h2>
-        <form id="donation-form">
+        <form id="donation-form" action="#" method="post">
             <div class="form-group">
                 <label for="name">Donor Name:</label>
                 <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile-number">Mobile Number:</label>
+                <input type="tel" id="mobile-number" name="mobile-number" required>
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" required>
             </div>
             <div class="form-group">
-                <label for="pincode">Pincode:</label>
-                <input type="tel" id="pincode" name="pincode" required>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
             </div>
             <div class="form-group">
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" required>
             </div>
             <div class="form-group">
-                <label for="state">State:</label>
-                <input type="text" id="state" name="state" required>
+                <label for="pincode">Postalcode:</label>
+                <input type="tel" id="pincode" name="pincode" required>
             </div>
-            <div class="form-group">
-                <label for="mobileNumber">Mobile Number:</label>
-                <input type="tel" id="mobile-number" name="mobileNumber" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+            
+        <div class="form-group">
+            <label for="comments">Any comments or feedback:</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+        <div id="donate-button-container" style="text-align: center;">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+                // Disable the donate button initially
+                const donateButtonContainer = document.getElementById('donate-button-container');
+                donateButtonContainer.style.pointerEvents = 'none';
+                donateButtonContainer.style.opacity = '0.5';
 
-            <!-- <div class="form-group">
-                <button type="submit">Donate Now</button>
-            </div> -->
+                const mobileNumberInput = document.getElementById('mobileNumber');
+                const numbervalid = () => {
+                    const mobileNumber = mobileNumberInput.value.trim(); // Get the value and remove any leading/trailing spaces
+                    const mobilePattern = /^\d{10}$/; // Regular expression to match exactly 10 digits
+
+                    return mobilePattern.test(mobileNumber); // Returns true if it matches, false otherwise
+                };
 
 
-            <div id="donate-button-container" style="text-align: center;">
-                <div id="donate-button"></div>
-                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-                <script>
-                    // Disable the donate button initially
-                    const donateButtonContainer = document.getElementById('donate-button-container');
-                    donateButtonContainer.style.pointerEvents = 'none';
-                    donateButtonContainer.style.opacity = '0.5';
+                // Function to check form validity
+                const checkFormValidity = () => {
+                    const form = document.getElementById('donation-form');
+                    if (form.checkValidity()) {
+                        donateButtonContainer.style.pointerEvents = 'auto';
+                        donateButtonContainer.style.opacity = '1';
+                    } else {
+                        donateButtonContainer.style.pointerEvents = 'none';
+                        donateButtonContainer.style.opacity = '0.7';
+                    }
+                };
 
-                    // Function to check form validity
-                    const checkFormValidity = () => {
-                        const form = document.getElementById('donation-form');
-                        if (form.checkValidity()) {
-                            donateButtonContainer.style.pointerEvents = 'auto';
-                            donateButtonContainer.style.opacity = '1';
-                        } else {
-                            donateButtonContainer.style.pointerEvents = 'none';
-                            donateButtonContainer.style.opacity = '0.7';
-                        }
-                    };
+                // Listen for input events on form fields
+                const formInputs = document.querySelectorAll('#donation-form input');
+                formInputs.forEach(input => {
+                    input.addEventListener('input', checkFormValidity);
+                });
 
-                    // Listen for input events on form fields
-                    const formInputs = document.querySelectorAll('#donation-form input');
-                    formInputs.forEach(input => {
-                        input.addEventListener('input', checkFormValidity);
-                    });
+                // PayPal Donation Button
+                PayPal.Donation.Button({
+                    env: 'sandbox',
+                    hosted_button_id: 'MTYJ9JEWRRT2Q',
+                    image: {
+                        src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+                        alt: 'Donate with PayPal button',
+                        title: 'PayPal - The safer, easier way to pay online!',
+                    },
+                    onComplete: function (params) {
+                        const { amt, tx, st } = params;
+                        
+                        const baseUrl = window.location.origin;
+                            var form = document.getElementById('donation-form');
+                            var formData = new FormData(form);
 
-                    // PayPal Donation Button
-                    PayPal.Donation.Button({
-                        env: 'sandbox',
-                        hosted_button_id: 'MTYJ9JEWRRT2Q',
-                        image: {
-                            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
-                            alt: 'Donate with PayPal button',
-                            title: 'PayPal - The safer, easier way to pay online!',
-                        },
-                        onComplete: function (params) {
-                            const { amt, tx, st } = params;
-                            const mobileNumberInput = document.getElementById('mobile-number');
-                            mobileNumberInput.addEventListener('input', function () {
-                                this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-                                if (this.value.length > 10) {
-                                    this.value = this.value.slice(0, 10); // Limit to 10 characters
-                                }
-                            });
-                            const baseUrl = window.location.origin;
-                            if (mobileNumberInput.value.length !== 10) {
-                                alert('Mobile number must be exactly 10 digits.');
-                                return;
-                            } else {
-                                var form = document.getElementById('donation-form');
-                                var formData = new FormData(form);
-
-                                var data = {};
-                                for (var [key, value] of formData.entries()) {
-                                    data[key] = value;
-                                }
-                                data['amt'] = amt;
-                                data['tx'] = tx;
-                                data['st'] = st;
-
-                                fetch(baseUrl + '/donate', {
-                                    method: 'POST',
-                                    body: JSON.stringify(data),
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                })
-                                    .then(response => response.json())
-                                    .then(responseData => {
-                                            alert('Donation process Completed Successfully!');
-                                            setTimeout(()=>{window.location.href = window.location.origin},10000);
-                                    })
-                                    .catch(error => {
-                                        console.error('Error:', error);
-                                    });
+                            var data = {};
+                            for (var [key, value] of formData.entries()) {
+                                data[key] = value;
                             }
+                            data['amt'] = amt;
+                            data['tx'] = tx;
+                            data['st'] = st;
+
+                            fetch(baseUrl + '/donate', {
+                                method: 'POST',
+                                body: JSON.stringify(data),
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                            })
+                                .then(response => response.json())
+                                .then(responseData => {
+                                        alert('Donation process Completed Successfully!');
+                                        setTimeout(()=>{window.location.href = window.location.origin},10000);
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
                         }
-                    }).render('#donate-button');
-                    
-                </script>
-            </div>
+                }).render('#donate-button');
+                
+            </script>
+        </div>
         </form>
     </div>
-    
+
     <!-------------------------------------------------------------------------- Footer starts here -------------------------------------------------------->
     <footer class="footer-section">
         <div class="container">

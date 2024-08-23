@@ -10,7 +10,8 @@ const NLF_DonateSchema = new mongoose.Schema({
     pincode : {type:Number, required:true},
     donatedAmount : {type:String},
     status : {type:String},
-    paymentId : {type:String}
+    paymentId : {type:String},
+    comments : {type:String}
 })
 
 const NLF_DonateModel = mongoose.model("NLF_Donate",NLF_DonateSchema);

@@ -317,3 +317,24 @@ h2 {
     background-color: transparent;
     color: #4e4e4e54;
 }
+
+
+
+
+
+/* Base styles */
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allows vertical resizing */
+}
+
+/* Media query for screen sizes 425px and below */
+@media (max-width: 425px) {
+    .form-group textarea {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
