@@ -22,43 +22,26 @@ app.use('/donate',DonateRouter);
 app.use('/register',RegisterRouter);
 app.use(bodyParser.json());
 
-app.post('/paypal/webhook', (req, res) => {
-  const transmissionId = req.headers['paypal-transmission-id'];
-  const timestamp = req.headers['paypal-transmission-time'];
-  const webhookId = 'YOUR-WEBHOOK-ID'; // replace with your webhook ID from PayPal
-  const certUrl = req.headers['paypal-cert-url'];
-  const authAlgo = req.headers['paypal-auth-algo'];
-  const transmissionSig = req.headers['paypal-transmission-sig'];
-
-  const body = JSON.stringify(req.body);
-
-  // Validate the webhook event with PayPal
-  const expectedSignature = crypto
-      .createHmac('sha256', 'YOUR-WEBHOOK-SECRET') // replace with your webhook secret
-      .update(transmissionId + '|' + timestamp + '|' + webhookId + '|' + body)
-      .digest('base64');
-
-  if (expectedSignature !== transmissionSig) {
-      console.error('Invalid webhook signature');
-      return res.status(400).send('Invalid signature');
-  }
-
-  // Handle the event based on the type
-  const eventType = req.body.event_type;
-  if (eventType === 'PAYMENT.SALE.COMPLETED') {
-      const transactionId = req.body.resource.id;
-      const amountPaid = req.body.resource.amount.total;
-      const payerEmail = req.body.resource.payer.email;
-
-      console.log('Transaction ID:', transactionId);
-      console.log('Amount Paid:', amountPaid);
-      console.log('Payer Email:', payerEmail);
-
-      // TODO: Store transaction details in your database or perform other actions
-  }
-
-  res.status(200).send('OK');
+app.get('/adminnlf', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin', 'login.html'));
 });
+
+app.post('/admin/auth',(req,res)=>{
+  const {userId,password} = req.body;
+  if(userId != 'nlfadmin01'){
+    res.json({'msg':"User Not Found!"});
+  }
+  else if(password != 'Foundation@org'){
+    res.json({'msg':"Wrong Password"});
+  }
+  else if(userId == 'nlfadmin01' && password == 'Foundation@org'){
+    res.json({'msg':`Welcome admin ${userId}`});
+  }
+  else{
+    res.json({"msg":"Something went wrong try again!"})
+  }
+});
+
 
 app.listen(port, async() => {
   try{

@@ -2,6 +2,12 @@ const { NLF_RegisterModel } = require('../Models/NLF_Register.model');
 require("dotenv").config();
 
 
+const getdata = async(req,res)=>{
+    let Regdata = await NLF_RegisterModel.find();
+    res.json({Regdata});
+};
+
+
 const Register = async(req,res)=>{
     const {email,tx} = req.body;
     const personexists = await NLF_RegisterModel.findOne({tx});
@@ -21,4 +27,4 @@ const Register = async(req,res)=>{
         }
 }
 
-module.exports = { Register }
+module.exports = { Register,getdata }

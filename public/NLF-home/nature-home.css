@@ -89,11 +89,13 @@
 
 
 /* -------------------------------------------------------------------------- banner starts here -------------------------------------------------------------------------------------------- */
+/* Base Styles */
+/* Base Styles */
 .hero {
-    background-image: url('./Images/main banner.jpeg');
+    background-image: url('./Images/main\ banner.jpeg');
     background-size: cover;
     background-position: center;
-    height: 220vh;
+    height: 220vh; /* Initial height for large screens */
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -123,7 +125,7 @@
     padding: 15px 30px;
     font-size: 25px;
     background-color: #4CAF50; /* Green */
-    margin-top: 800px;
+    margin-top: 800px; /* Adjust based on design */
     width: 350px;
     color: white;
     border: none;
@@ -143,13 +145,33 @@
 
 .register-btn a:hover {
     text-decoration: none;
-   color: black;
+    color: black;
 }
 
-/* Media Query for Tablets (max-width: 768px) */
-@media screen and (max-width: 768px) {
+/* Media Query for Large Screens (Desktops and Large Laptops) */
+@media screen and (min-width: 1200px) {
     .hero {
-        background-image: url('./Images/main banner-tablet.jpeg'); /* Use a different image for tablets if needed */
+        background-image: url('./Images/main\ banner.jpeg');
+        background-size: cover;
+        background-position: center;
+        height: 200vh; /* Adjust height for large screens */
+    }
+}
+
+/* Media Query for Laptops (Min-width: 992px and Max-width: 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .hero {
+        background-image: url('./Images/main\ banner.jpeg');
+        background-size: cover;
+        background-position: center;
+        height: 180vh; /* Adjust height for laptops */
+    }
+}
+
+/* Media Query for Tablets (Min-width: 768px and Max-width: 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .hero {
+        background-image: url('./Images/main\ banner.jpeg');
         background-size: cover;
         background-position: center;
         height: 150vh; /* Adjust height for tablets */
@@ -161,13 +183,13 @@
     }
 }
 
-/* Media Query for Mobile Phones (max-width: 480px) */
-@media screen and (max-width: 480px) {
+/* Media Query for Small Tablets and Large Mobile Phones (Max-width: 767px) */
+@media screen and (max-width: 767px) {
     .hero {
-        background-image: url('./Images/main banner-mobile.jpeg'); /* Use a different image for mobiles if needed */
+        background-image: url('./Images/main\ banner.jpeg');
         background-size: cover;
         background-position: center;
-        height: 100vh; /* Adjust height for mobiles */
+        height: 120vh; /* Adjust height for small tablets and large mobile phones */
     }
 
     .register-btn {
@@ -176,9 +198,28 @@
     }
 }
 
-/* ----------------------------------------------------------------------------- banner ends here -------------------------------------------------------------------------------------------- */
+/* Media Query for Small Mobile Phones (Max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .hero {
+        background-image: url('./Images/main\ banner.jpeg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Adjust height for small mobile phones */
+    }
+
+    .register-btn {
+        margin-bottom: 370px;
+        width: 150px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* ------------------------------------------------------------------------------banner ends here -------------------------------------------------------------------------------------------
 
 
+
+*/
 /* ------------------------------------------------------------------------------ cards starts here ------------------------------------------------------------------------------------------- */
 .card {
     margin: 20px 0;
