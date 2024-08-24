@@ -61,10 +61,10 @@
     <div class="container mt-4">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="/admin/Registered.html">Registration</a>
+                <a class="nav-link" href="/admin/Registered.html">Registration</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/Donate.html">Donations</a>
+                <a class="nav-link active" href="/admin/Donate.html">Donations</a>
             </li>
         </ul>
     </div>
@@ -85,16 +85,16 @@
                         <tr>
                             <th>S. No</th>
                             <th>Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
                             <th>Email</th>
                             <th>Contact</th>
-                            <th>Adults</th>
-                            <th>Children</th>
-                            <th>Volunteer</th>
-                            <th>Preference</th>
-                            <th>Accommodation</th>
+                            <th>Pincode</th>
                             <th>Amount (USD)</th>
                             <th>Status</th>
-                            <th>Transaction ID</th>
+                            <th>Payment ID</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
@@ -119,6 +119,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+
         document.getElementById('logoutBtn').addEventListener('click',function(event){
             event.preventDefault();
             localStorage.clear('admin');
@@ -134,16 +135,16 @@
 
         const rowsPerPage = 10;
         let currentPage = 1;
-        let tableitems = [];
+        let tableItems = [];
         let filteredItems = [];
 
-        // Function to fetch data from /register and populate the table
+        // Function to fetch data from /donate and populate the table
         async function fetchData() {
             try {
-                const response = await fetch('/register');
+                const response = await fetch('/donate');
                 const data = await response.json();
-                tableitems = data.Regdata;
-                filteredItems = tableitems;
+                tableItems = data.Regdata;
+                filteredItems = tableItems;
 
                 // Initially display the first page
                 displayTable(currentPage);
@@ -166,17 +167,17 @@
 
                 row.innerHTML = `
                     <td>${i + 1}</td>
-                    <td>${user.firstName} ${user.lastName}</td>
+                    <td>${user.name}</td>
+                    <td>${user.address}</td>
+                    <td>${user.city}</td>
+                    <td>${user.state}</td>
                     <td>${user.email}</td>
                     <td>${user.mobileNumber}</td>
-                    <td>${user.adults}</td>
-                    <td>${user.children}</td>
-                    <td>${user.volunteer ? 'Yes' : 'No'}</td>
-                    <td>${user.preference}</td>
-                    <td>${user.accommodation}</td>
-                    <td>${user.amt}</td>
-                    <td>${user.st}</td>
-                    <td>${user.tx}</td>
+                    <td>${user.pincode}</td>
+                    <td>${user.donatedAmount}</td>
+                    <td>${user.status}</td>
+                    <td>${user.paymentId}</td>
+                    <td>${user.comments}</td>
                 `;
                 
                 tableBody.appendChild(row);
@@ -212,9 +213,9 @@
 
         function filterTable() {
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            filteredItems = tableitems.filter(user => {
-                const name = `${user.firstName} ${user.lastName}`.toLowerCase();
-                const contact = user.mobileNumber.toLowerCase();
+            filteredItems = tableItems.filter(user => {
+                const name = user.name.toLowerCase();
+                const contact = user.mobileNumber.toString().toLowerCase();
                 const email = user.email.toLowerCase();
 
                 return name.includes(searchInput) || contact.includes(searchInput) || email.includes(searchInput);

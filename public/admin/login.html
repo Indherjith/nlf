@@ -132,8 +132,12 @@
         .then(data => {
             alert(data.msg);
             if(data.msg == `Welcome admin ${userId}`){
-                let redirecturl = `${baseUrl}/admin/Registered.html`
+                let redirecturl = `${baseUrl}/admin/Registered.html`;
+                localStorage.setItem('admin',true);
                 window.location.href = redirecturl;
+            }
+            else{
+                localStorage.setItem('admin',false);
             }
             console.log('Success:', data);
         })

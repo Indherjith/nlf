@@ -2,6 +2,11 @@ const {NLF_DonateModel} = require('../Models/NLF_Donate.model');
 const axios = require('axios');
 const ipn = require('paypal-ipn');
 
+const getdata = async(req,res)=>{
+    let Regdata = await NLF_DonateModel.find();
+    res.json({Regdata});
+};
+
 const DonateHandler= async(req,res)=>{
     const {name,address,city,state,mobileNumber,email,pincode,amt,tx,st,comments} = req.body;
     
@@ -18,4 +23,6 @@ const DonateHandler= async(req,res)=>{
 }
 
 
-module.exports = { DonateHandler }
+
+
+module.exports = { DonateHandler,getdata }
