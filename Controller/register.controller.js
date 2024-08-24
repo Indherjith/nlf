@@ -3,13 +3,12 @@ require("dotenv").config();
 
 
 const Register = async(req,res)=>{
-    const {email} = req.body;
-    const personexists = await NLF_RegisterModel.findOne({email});
-
-    if(personexists?.email == email){
-        res.json({"msg" : "Person Already Exists!"});
+    const {email,tx} = req.body;
+    const personexists = await NLF_RegisterModel.findOne({tx});
+    if(personexists){
+        res.json({'msg':'Existing Payment Transaction!'});
     }
-    else{
+
         var volunteerstatus = (req.body.volunteer == 'yes')? true : false;
         const register = new NLF_RegisterModel({...req.body,volunteer:volunteerstatus});
         try{
@@ -20,7 +19,6 @@ const Register = async(req,res)=>{
             console.log(err)
             res.json({"msg":"Something went wrong, plz try again"});
         }
-    }
 }
 
 module.exports = { Register }
