@@ -52,6 +52,13 @@
                 overflow-x: auto;
             }
         }
+
+        #downloadBtn {
+            position: fixed;
+            bottom: 0.5rem; /* Reduced bottom margin */
+            right: 0.5rem; /* Reduced right margin */
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -94,7 +101,6 @@
                             <th>Amount (USD)</th>
                             <th>Status</th>
                             <th>Payment ID</th>
-                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
@@ -113,10 +119,15 @@
         </nav>
     </div>
 
+    <button id="downloadBtn" class="btn btn-primary">Download as PDF</button>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
 
     <script>
 
@@ -177,7 +188,6 @@
                     <td>${user.donatedAmount}</td>
                     <td>${user.status}</td>
                     <td>${user.paymentId}</td>
-                    <td>${user.comments}</td>
                 `;
                 
                 tableBody.appendChild(row);
@@ -225,6 +235,59 @@
             displayTable(currentPage);
             setupPagination();
         }
+
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('landscape'); // Set PDF orientation to landscape
+
+    const columns = [
+        { header: 'S. No', dataKey: 'serial' },
+        { header: 'Name', dataKey: 'name' },
+        { header: 'Email', dataKey: 'email' },
+        { header: 'Contact', dataKey: 'contact' },
+        { header: 'Address', dataKey: 'address' },
+        { header: 'City', dataKey: 'city' },
+        { header: 'State', dataKey: 'state' },
+        { header: 'Pincode', dataKey: 'pincode' },
+        { header: 'Amount (USD)', dataKey: 'amount' },
+        { header: 'Status', dataKey: 'status' },
+        { header: 'Transaction ID', dataKey: 'transactionId' }
+    ];
+
+    const rows = filteredItems.map((user, index) => ({
+        serial: index + 1,
+        name: user.name,
+        email: user.email,
+        contact: user.mobileNumber,
+        address: user.address,
+        city: user.city,
+        state: user.state,
+        pincode: user.pincode,
+        amount: user.donatedAmount,
+        status: user.status,
+        transactionId: user.paymentId
+    }));
+
+    doc.autoTable({
+        head: [columns.map(col => col.header)],
+        body: rows.map(row => columns.map(col => row[col.dataKey])),
+        startY: 10,
+        styles: {
+            fontSize: 9, // Set the font size for the table content
+            halign:'center'
+        },
+        headStyles: {
+            fontSize: 8,// Set the font size for the table headers
+            halign: 'center' // Center-align the text in the headers
+        }
+    });
+
+    doc.save('RegisteredUsers.pdf');
+});
+
+
+
 
         // Fetch data when the page loads
         document.addEventListener('DOMContentLoaded', fetchData);
